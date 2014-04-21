@@ -9,6 +9,8 @@ int main()
     double length=0.0;
     double width=0.0;
     double base=0.0;
+    double base1=0.0;
+    double base2=0.0;
     double height=0.0;
     int choice=0;
 
@@ -17,11 +19,13 @@ int main()
     cout << "1. Calculate the area of a Circle\n";
     cout << "2. Calculate the area of a Rectangle\n";
     cout << "3. Calculate the area of a Triangle\n";
-    cout << "4. Quit\n\n";
-    cout << "Enter your choice (1-4): ";
+    cout << "4. Calculate the area of a Trapezoid\n";
+    cout << "5. Calculate the area of a Sphere\n";
+    cout << "6. Exit\n\n";
+    cout << "Enter your choice (1-6): ";
     cin >> choice;
     
-    if (choice>=1 && choice<=4)
+    if (choice>=1 && choice<=6)
     {    
         switch (choice)
         {
@@ -31,15 +35,10 @@ int main()
                 cin >> radius;
                 
                 if (radius>0)
-                {    
-                    area = PI * radius * radius;
+                    
+                    area = (PI * radius * radius);
                     //cout << fixed << setprecision(4);
                     cout << "The area is " << area;
-                }
-                else
-                {
-                    cout << "The radius can not be less than zero.";
-                }
                 break;
             case 2: //Area of Rectangle
                 cout << "\n";
@@ -49,15 +48,9 @@ int main()
                 cin >> width;
                 
                 if (length>0 && width>0)
-                {    
-                    area = length * width;
-                    cout << "The area is " << area;
-                }
-                else
-                {
-                    cout << "\nOnly enter positive values for length and width.";
-                }
-            
+                    
+                area = length * width;
+                cout << "The area is " << area;
                 break;
             case 3: //Area of Triangle
                 cout << "Enter the length of the base: ";
@@ -66,23 +59,42 @@ int main()
                 cin >> height;
                 
                 if (base>0 && height>0)
-                {    
-                    area = (base * height)/2;
-                    cout << "\nThe area is " << area;
-                }
-                else
-                {
-                    cout << "\nOnly enter positive values for base and height.";
-                }
+                   
+                area = (base * height)/2;
+                cout << "The area is " << area; 
                 break;
-            case 4:
-                cout << "Program ending.";
+            case 4: //Area of a Trapezoid
+                cout << "Enter the Trapezoid's height";
+                cin >> height;
+                cout << "Enter the Trapezoid's base 1";
+                cin >> base1;
+                cout << "Enter the Trapezoid'd base 2";
+                cin >> base2;
+                
+                if (base1>0 && base2>0 && height>0) 
+                
+                area = (height * (base1 + base2))/2;
+                cout << "The area is" << area;
                 break;
+            case 5: //Area of a Sphere
+                cout << "Enter the Sphere's radius";
+                cin >> radius;
+                    
+                if (radius>0);
+                
+                area = (4)*(PI * radius * radius);
+                cout << "The area is" << area;
+                break;
+            case 6: //Exit
+                cout << "Program Ending.";
+                break;
+                
+                    
         }
     }
     else
     {
-        cout << "The valid choices are 1 through 4. Run the\n program again and select one of those.";
+        cout << "The valid choices are 1 through 6. Run the\n program again and select one of those.";
     }
 
     return 0;
